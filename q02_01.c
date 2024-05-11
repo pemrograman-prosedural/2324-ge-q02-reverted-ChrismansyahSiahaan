@@ -60,7 +60,13 @@ int main(int _argc, char **_argv)
         print_dorm_detail(drm[m]);
       }
     }
-
+    else if (strcmp(token, "student-add") == 0)
+    {
+      sizee++;
+      mhs = realloc(mhs, sizee * sizeof(struct student_t));
+      mhs[zstd] = create_student(input);
+      zstd++;
+    }
     else if (strcmp(token, "student-print-all") == 0)
     {
       for (int m = 0; m < zstd; m++)

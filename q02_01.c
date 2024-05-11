@@ -60,13 +60,7 @@ int main(int _argc, char **_argv)
         print_dorm_detail(drm[m]);
       }
     }
-    else if (strcmp(token, "student-add") == 0)
-    {
-      sizee++;
-      mhs = realloc(mhs, sizee * sizeof(struct student_t));
-      mhs[zstd] = create_student(input);
-      zstd++;
-    }
+
     else if (strcmp(token, "student-print-all") == 0)
     {
       for (int m = 0; m < zstd; m++)
@@ -92,6 +86,11 @@ int main(int _argc, char **_argv)
       char *nim = strtok(NULL, "#");
       char *asrama = strtok(NULL, "#");
       move_student(drm, mhs, nim, asrama, zstd, zdrm, find_id, find_dorm);
+    }
+    else if (strcmp(token, "dorm-empty") == 0)
+    {
+      char *asrama = strtok(NULL, "#");
+      dorm_empty(asrama, zstd, zdrm, mhs, drm, find_dorm);
     }
   }
   free(mhs);
